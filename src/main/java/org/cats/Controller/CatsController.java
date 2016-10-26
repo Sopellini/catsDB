@@ -1,6 +1,7 @@
 package org.cats.Controller;
 
 import org.cats.DataTransferObjects.CatDTO;
+import org.cats.DataTransferObjects.ToyDTO;
 import org.cats.Model.Cat;
 import org.cats.Service.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +60,10 @@ public class CatsController{
             return "addCat";
     }
 
-    @RequestMapping("catDetails-{id}")
-    public String catDetails(@PathVariable("id") int id, Model model) {
+    @RequestMapping(value="catDetails-{id}", method=RequestMethod.GET)
+    public String getCatDetails(@ModelAttribute("toyDTO") @Valid ToyDTO tatDTO, BindingResult result, @PathVariable("id") int id, Model model) {
         model.addAttribute("cat", catSvc.getCatById(id));
+        model.addAttribute("toysList", catSvc.getCatById(id).getToyList());
         return "catDetails";
     }
 }
