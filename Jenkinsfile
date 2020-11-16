@@ -18,7 +18,7 @@ timeout(time: 1, unit: 'HOURS') {
 def mavenBuild() {
     stage('Maven build') {
             try {
-                    image = docker.image("a206166-filings-jenkins-agent:jenkinsagent_latest")
+                    image = docker.image("java-agent:latest")
                     image.inside {
                         withMaven() {
                             sh "mvn clean install"
