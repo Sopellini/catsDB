@@ -2,7 +2,7 @@ timeout(time: 1, unit: 'HOURS') {
     node() {
         checkout scm
         currentBuild.description = "Deployment to DEV workspace"
-        env.packageVersion = readMavenPom().version
+        env.packageVersion = 1.0//readMavenPom().version
         image = ""
         def stepsToRunBuild = ""
         def stepsToRunDeploy = ""
