@@ -32,6 +32,6 @@ def mavenBuild() {
 
 def ipInfo() {
     stage('IP info') {
-        sh "curl ifconfig.io"
+        sh "echo curl ifconfig.io"
     }
 }
