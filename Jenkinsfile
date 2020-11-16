@@ -18,7 +18,7 @@ timeout(time: 1, unit: 'HOURS') {
 def mavenBuild() {
     stage('Maven build') {
             try {
-                    image = docker.image("sopellini/java-agent:latest")
+                    image = docker.image("java-agent")
                     image.inside {
                         withMaven() {
                             sh "mvn clean install"
@@ -32,6 +32,6 @@ def mavenBuild() {
 
 def ipInfo() {
     stage('IP info') {
-        sh "echo curl ifconfig.io"
+        sh "echo ${curl ifconfig.io}"
     }
 }
