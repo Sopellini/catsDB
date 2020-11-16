@@ -9,7 +9,7 @@ timeout(time: 1, unit: 'HOURS') {
 
         environment = "dev"
 
-        stepsToRunBuild = [ipInfo(), mavenBuild()]
+        stepsToRunBuild = [mavenBuild()]
         
         stepsToRunBuild.each { i -> "$i"() }
     }
